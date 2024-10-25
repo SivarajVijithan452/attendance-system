@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { FaUser, FaLock } from 'react-icons/fa'; // Import icons from react-icons
 import userProfileLogo from '@/assets/user-profile.png';
 
 const Login = ({ onLogin }) => {
@@ -49,22 +50,28 @@ const Login = ({ onLogin }) => {
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleLogin}>
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            className="border p-2 w-full mb-4"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            required
-                        />
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            className="border p-2 w-full mb-4"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
+                        <div className="flex items-center border mb-4">
+                            <FaUser className="ml-2 text-gray-500" />
+                            <input
+                                type="text"
+                                placeholder="Username"
+                                className="border-none p-2 w-full"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="flex items-center border mb-4">
+                            <FaLock className="ml-2 text-gray-500" />
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                className="border-none p-2 w-full"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
                         <CardFooter>
                             <Button type="submit" className="text-white w-full">
                                 Login
